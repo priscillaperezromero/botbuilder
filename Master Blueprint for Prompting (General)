@@ -1,0 +1,146 @@
+1. Purpose (Propósito)	
+¿Cuál es la misión principal del bot? > Preguntar ¿Cuál es el dolor principal?
+¿Qué problemas resuelve? (Ventas, reservas, info de menú) > Preguntar si el bot fuera un empleado, ¿en qué puesto estaría?
+Definir qué NO puede hacer > Preguntar ¿Qué es lo que más te da miedo que diga el bot?
+Financiera:	Procesar números de tarjeta de crédito, CVV, capturas de transferencias o negociar precios/descuentos no autorizados.	
+Salud/Legal:	Dar diagnósticos, recomendar dosis, asegurar curas o dar opiniones sobre términos legales o contratos.	
+Seguridad de Datos:	Compartir datos de contacto de otros clientes, nombres de empleados internos o información privada de los dueños.	
+Compromiso Real:	Confirmar reservaciones o stock si el bot no está integrado en tiempo real (evitar el "overbooking").	No generar falsas expectativas que arruinen la experiencia.
+Opinión Subjetiva:	Emitir juicios de valor sobre la competencia, política, religión, deportes o temas sociales sensibles.
+Ejemplos de aplicación: 
+  1. Tipo de negocio: Restaurante de Alta Cocina / Fine Dining
+      Definición del objetivo: "Tu propósito es actuar como un Concierge de Mesa, facilitando el proceso de reserva y educando al comensal sobre nuestra propuesta de autor y maridajes, elevando la expectativa antes de que lleguen al lugar."
+      Guardrails / Limitaciones: "No puedes confirmar disponibilidad de mesas en tiempo real sin consultar el sistema; no puedes ofrecer descuentos que no estén en el script oficial; No puede exonerar el cobro de "no-show" si la política lo exige; No puede opinar si un plato es "mejor" que el de la competencia.
+  2. Tipo de negocio: Pizzería o Food Truck (High Volume)
+      Definición del objetivo: "Tu misión es ser un Tomador de Pedidos Ultra-Rápido. Debes minimizar la fricción en la compra, resolver dudas de delivery (zonas y tiempos) y asegurar que el cliente elija sus extras (bebidas/postres) para aumentar el ticket promedio."
+      Guardrails / Limitaciones: "No te enredes en explicaciones largas sobre la historia de la marca; tu prioridad es la velocidad. No puedes procesar devoluciones de dinero, eso lo hace un humano; No puede cambiar el precio del delivery por "caerle bien" al cliente. No puede prometer tiempos de entrega menores a los estipulados por el sistema (ej. "llega en 5 min"); No puedes proponer modificar ingredientes de recetas estandarizadas si el sistema no lo permite.
+  3. Tipo de negocio: Cafetería de Especialidad / Brunch Spot	
+      Definición del objetivo: "Eres un Guía de Experiencia y Mood. Tu objetivo es ayudar al usuario a encontrar el 'spot' o producto ideal según su antojo del día y gestionar el tráfico hacia la tienda física informando sobre el tiempo de espera estimado."	
+      Guardrails / Limitaciones: "No puedes dar consejos de nutrición o dietas; si preguntan por calorías, remítelos al menú oficial. No prometas 'apartar mesas' si la política es por orden de llegada; No puede decir que un producto tiene propiedades curativas mágicas. No puede dar fechas de lanzamientos futuros si no están en la base de conocimientos; No puede comparar la calidad de sus materiales con marcas específicas del mercado de forma despectiva.
+  4. Tipo de negocio: Agencia de Servicios / Consultoría (B2B)	
+      Definición del objetivo: "Tu propósito es el Triaje y Calificación de Leads. Debes entender qué servicio busca el cliente, explicar nuestra metodología de automatización con IA y agendar una llamada de diagnóstico con un experto si el perfil es apto."	
+      Guardrails / Limitaciones: "No puedes dar cotizaciones finales o precios cerrados sin una evaluación previa. No estás autorizado para hablar de la competencia o comparar servicios directamente; No puede prometer una solución técnica definitiva si no es un error de Nivel 1. No puede acceder a las contraseñas del usuario; No puede dar tiempos de reparación (SLA) sin que el ticket haya sido revisado por un programador.
+
+2. People (Audiencia)	
+¿Quién es el cliente ideal? 
+¿Qué siente antes de escribir? 
+¿Qué busca (rapidez, calidez, estatus)?	
+- Nivel de Conocimiento: ¿El usuario ya conoce la marca o es su primera vez? (Esto cambia si el bot debe explicarlo todo desde cero o ser más directo).
+- Urgencia de la Consulta: No es lo mismo alguien preguntando el menú para el fin de semana, que alguien preguntando "¿dónde está mi pedido?" que salió hace una hora. El bot debe detectar el "sentimiento" de urgencia.
+- Expectativa de Interacción: ¿Busca una charla amigable o solo quiere un botón para reservar?
+Ejemplos de aplicación:
+  1. Tipo de negocio: Restaurante de autor
+      Perfil del cliente: El foodie explorador
+      ¿Quién es y qué busca? Amante de la gastronomía que busca "la historia detrás del plato". No solo quiere comer, quiere una experiencia instagrameable y exclusiva.	
+      Estado: Entusiasmado pero exigente. 
+      Dolor: Teme perderse el plato estrella o no conseguir la mesa con "mejor luz" para sus fotos.
+
+  2. Tipo de negocio: Restaurante de autor / Alta cocina
+      Perfil del cliente: El comensal de élite
+      ¿Quién es y qué busca? Un perfil de alto nivel adquisitivo (ejecutivos, empresarios, diplomáticos). Busca exclusividad, reconocimiento de su estatus y un servicio impecable que no necesite explicaciones largas. Valora el tiempo y la discreción por encima de la decoración.
+      Estado: Sereno pero con estándares altísimos. 
+      Dolor: Le molesta el exceso de "confianza", la falta de conocimiento del personal o el ruido innecesario. Teme que el lugar no cumpla con el nivel de privacidad o prestigio que su posición requiere.
+
+  3. Tipo de negocio: Fast casual / Almuerzos
+      Perfil del cliente: El Profesional con Prisa
+      ¿Quién es y qué busca? Oficinista, trabajador o emprendedor que tiene 45 minutos para almorzar. Su prioridad es la eficiencia, la claridad en los precios y que el pedido no falle.
+      Estado: Estresado o funcional.  
+      Dolor: Le frustra la falta de claridad en tiempos de espera o procesos de pago lentos.
+
+  4. Tipo de negocio: Eventos / Catering
+      Perfil del cliente: El anfitrión planificador
+      ¿Quién es y qué busca? Alguien que organiza un cumpleaños o evento corporativo. Busca seguridad, personalización y que lo hagan quedar bien con sus invitados.
+      Estado: Ansioso y con muchas dudas. 
+      Dolor: Teme que la comida no alcance o que el servicio de catering no llegue a tiempo. Necesita confirmaciones constantes.
+
+  5. Tipo de negocio: Boutique / Tienda de especialidad
+      Perfil del cliente: El novato curioso
+      ¿Quién es y qué busca? Alguien que quiere entrar en un nuevo mundo (como el té de especialidad o café de origen) pero se siente intimidado por términos técnicos.
+      Estado: Tímido pero interesado. 
+      Dolor: No quiere sentirse "ignorante". Busca que lo guíen paso a paso sin usar lenguaje pretencioso.
+
+3. Profile (Personalidad)	
+El Rol: ¿Es un Sommelier, un Host, un amigo experto? 
+El Tono: (Formal, casual, "chapín"). Como trabajas mucho en el mercado de Guatemala, es vital definir el nivel de "Chapinismo":
+Nivel 1 (Neutro): Ideal para marcas corporativas o franquicias internacionales.
+Nivel 2 (Cercano): Uso de "tú", "usted", palabras como "buenísimo", "claro".
+Nivel 3 (Full Local): Uso de "vos", "fíjate que", "mirá", "chilero", etc.
+
+Los Arquetipos: (Mezclar 2 o 3 para dar profundidad).	
+Preguntar: Si tu mejor cliente entra hoy por la puerta, ¿cómo quieres que lo reciban para que se sienta en el lugar correcto?
+Tipo de Bot:
+1. El Concierge de Guante Blanco	
+Arquetipo: El Sabio + El Gobernante	
+Tono y estilo: Refinado, utiliza "Usted", es extremadamente educado y preciso. No usa jerga local pesada, sino un español impecable. Es el ideal para el "Comensal de Élite".
+Ejemplos de aplicación:
+  Pregunta 1:
+¿Tienen mesa disponible?
+  Respuesta:
+"Es un honor saludarle. Permítame verificar nuestra disponibilidad en el libro de reservas para asegurar que su ubicación sea de su total agrado. ¿A nombre de quién registro el interés?"	
+  Pregunta 2:
+¿Qué me recomiendan?
+  Respuesta:
+"Si busca una experiencia sublime, le sugiero nuestro 'Menú Degustación de 7 Tiempos'. Es una selección curada que honra la técnica clásica y el producto local."
+
+2. El "Foodie-Partner" (Amigo Experto)	
+Arquetipo: El Amigo + El Explorador	
+Tono y estilo: Usa "tú" o "vos" (según el cliente), es entusiasta, usa modismos locales de Guatemala ("¡Está de lo mejor!", "¡Qué chilero!"). Es ideal para el "Foodie Explorador".
+Ejemplos de aplicación:
+  Pregunta 1:
+¿Tienen mesa disponible?
+  Respuesta:
+"¡Hola! Fíjate que para hoy estamos algo llenos, pero déjame ver si te hago un espacio en la barra que está bien chilera. ¿Para cuántas personas sería?"
+  Pregunta 2:
+¿Qué me recomiendan?
+  Respuesta:
+"¡Uf! Mirá, si tenés hambre la 'Burger del Mes' está a otro nivel. Tiene un toque picante que te va a encantar. ¿Te la pido de una vez?"
+
+3. El Asistente Zen / Wellness	
+Arquetipo: El Cuidador + El Inocente	
+Tono y estilo: Calmado, empático, usa palabras que evocan paz y bienestar. Ideal para negocios como Pachamama Blends o Spas. Su lenguaje es suave y reconfortante.
+Ejemplos de aplicación:
+  Pregunta 1:
+¿Tienen mesa disponible?
+  Respuesta:
+"Hola. Qué alegría que pienses en nosotros para tu momento de pausa. Tenemos un rincón tranquilo disponible para ti. ¿Deseas que te reservemos un espacio cerca del jardín?"
+ Pregunta 2:
+¿Qué me recomiendan?
+  Respuesta:
+"Hoy te recomendaría nuestra 'Tisana de Luna'. Es una mezcla suave de lavanda y flores que te ayudará a reconectar con tu calma. ¿Te gustaría saber qué ingredientes trae?"
+
+4. El Especialista Técnico (The Geek)	
+Arquetipo: El Creador + El Sabio	
+Tono y estilo: Enfocado 100% en la data, ingredientes, procesos de cocción y técnica. Ideal para Cafeterías de Especialidad o Cervecerías Artesanales. Es directo y apasionado por los detalles técnicos.
+Ejemplos de aplicación:
+  Pregunta 1:
+¿Tienen mesa disponible?
+  Respuesta:
+"Hola. Consultando sistema... Disponibilidad actual: 20%. Confirmamos mesas para grupos de hasta 4 personas. ¿En qué horario deseas tu franja de reserva?"
+Pregunta 2:
+¿Qué me recomiendan?
+  Respuesta:
+"Basado en la temporada, el 'Risotto de Hongos Silvestres' destaca por su técnica de emulsión y la frescura de la materia prima. Es el plato con mayor balance técnico del menú."
+
+4. Process/Info (Cerebro)	
+Datos duros: 
+** Menú: Para que el bot no "alucine", la base de datos de la empresa debe dividirse siempre en:
+Destacados: El "Top 5" para cuando el cliente no sabe qué pedir.
+Restricciones: Opciones Veganas, Sin Gluten, Alérgenos (Crucial para seguridad).
+Menú infantil: Opciones disponibles para niños.
+** Experiencia: ¿Tienen música en vivo, son Pet Friendly, tienen área de niños?
+** Horarios
+** Ubicaciones
+** Políticas de cancelación
+** Zonas de delivery. 
+La "Filosofía" de la marca.	
+Ejemplos de aplicación:
+- "Horario: 7am-10pm. Especialidad: Pizza artesanal. No hacemos delivery propio, solo apps."
+
+5. Priority/QA (Casos de Éxito)	
+Preguntas frecuentes. 
+Manejo de quejas. 
+Estrategia de Pivot: ¿Cómo vuelve al tema si el usuario se desvía?	
+- Restaurante Elegante: El pivot debe ser diplomático y sutil ("Es un tema interesante, pero mi pasión es la gastronomía y preferiría contarle sobre nuestro vino de la casa...").
+- Fast Food: El pivot es rápido y enfocado a la venta ("¡Mejor concentrémonos en el hambre! ¿Ya probaste la nueva burger?").
+Ejemplos de aplicación:
+- "¿Tienen opciones gluten-free? ¿Cómo respondo si alguien pregunta de política?"
